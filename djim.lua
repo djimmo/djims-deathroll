@@ -124,7 +124,7 @@ function Djim:DeathRoll(prefixa, text, channel, sender)
             InitiateTrade(sender)
             C_Timer.After(1, function()
                 if TradeFrame:IsShown() then
-                    SetTradeMoney(Djim.db.profile.deathrollAmount * 100 * 100) 
+                    SetTradeMoney(Djim.db.profile.deathrollAmount * 100 * 100)
                     -- else
                     --     PickupPlayerMoney(1*100*100)
                 end
@@ -198,22 +198,61 @@ function Djim:RandomMeuk()
 end
 
 function Djim:NewFrame()
+
     -- Create a container frame
     local f = AceGUI:Create("Frame")
     f:Hide()
     f:SetWidth(400)
-    f:SetHeight(200)
+    f:SetHeight(300)
     f:SetCallback("OnClose", function(widget)
         -- AceGUI:Release(widget)
     end)
     f:SetTitle("Djim's Deathroll")
     f:SetStatusText("Deathrolls for life!")
     f:SetLayout("Flow")
-    -- Create a button
+
+    local label = AceGUI:Create("Label")
+    label:SetFullWidth(true)
+    label:SetText("Start a death roll by choosing your opponent and set the bet amount \nHave fun!!")
+    f:AddChild(label)
+
+    local header = AceGUI:Create("Heading")
+    header:SetText("Configuration")
+    header:SetRelativeWidth(1)
+    f:AddChild(header)
+
+    local opponent = AceGUI:Create("EditBox")
+    opponent:SetFullWidth(true)
+    opponent:SetLabel("Your opponent")
+    opponent:SetText(self.db.profile.deathrollBuddy)
+    opponent:SetCallback("OnEnterPressed", function(_, __, text)
+        self:Print("Opponent changed to " .. text)
+        self.db.profile.deathrollBuddy = text
+    end)
+    f:AddChild(opponent)
+
+    local vspace = AceGUI:Create("Label")
+    vspace:SetText(" ")
+    f:AddChild(vspace)
+
+    local slider = AceGUI:Create("Slider")
+    slider:SetFullWidth(true)
+    slider:SetLabel("Deathroll Amount")
+    slider:SetSliderValues(1, Djim.db.profile.deathrollMax, 1)
+    slider:SetValue(Djim.db.profile.deathrollAmount)
+    slider:SetCallback("OnMouseUp", function(_, __, value)
+        self:Print("Deathroll amount set to: " .. value)
+        self.db.profile.deathrollAmount = value
+    end)
+    f:AddChild(slider)
+
+    f:AddChild(vspace)
+
     local btn = AceGUI:Create("Button")
+    btn:SetFullWidth(true)
     btn:SetWidth(170)
     -- btn:SetPoint("TOP", self, "BOTTOM", 0, -2)
-    btn:SetText("Roll")
+    btn:SetText("Deathroll")
     btn:SetCallback("OnClick", function()
         RandomRoll(1, Djim.db.profile.deathrollAmount * 10)
     end)

@@ -8,7 +8,8 @@ Djim.defaults = {
             hide = false
         },
         deathrollBuddy = "Falci",
-        deathrollAmount = 8
+        deathrollAmount = 25,
+		deathrollMax = 1000
 	}
 }
 
@@ -18,18 +19,18 @@ Djim.options = {
 	name = "Djim's Deathroll Configuration",
 	handler = Djim,
 	args = {
-        deathrollBuddy = {
-            type = "input",
-            order = 1,
-            name = "Who to challenge for Deathroll",
-            width = "double",
-         	get = "GetValue",
-			set = "SetValue",
-        },
-        deathrollAmount = {
+        -- deathrollBuddy = {
+        --     type = "input",
+        --     order = 1,
+        --     name = "Who to challenge for Deathroll",
+        --     width = "double",
+        --  	get = "GetValue",
+		-- 	set = "SetValue",
+        -- },
+        deathrollMax = {
             type = "range",
             order = 2,
-            name = "Amount for Deathroll",
+            name = "Max Amount Slider for Deathroll",
 			-- this will look for a getter/setter on our handler object
 			get = "GetSomeRange",
 			set = "SetSomeRange",
@@ -99,11 +100,11 @@ Djim.options = {
 }
 
 function Djim:GetSomeRange(info)
-	return self.db.profile.deathrollAmount
+	return self.db.profile.deathrollMax
 end
 
 function Djim:SetSomeRange(info, value)
-	self.db.profile.deathrollAmount = value
+	self.db.profile.deathrollMax = value
 end
 
 -- for documentation on the info table

@@ -1,8 +1,15 @@
-## Interface: 48632
+## Interface: 30401
+
 ## Title: Djim's Awesome Addon
 ## Notes: Just playin' around.
+
 ## Version: 0.1
+
 ## Author: Djim
+
+## X-Category: Minigames
+## X-License: All rights reserved.
+## X-Curse-Project-ID: 841080
 ## SavedVariables: DjimDB
 
 Libs\LibStub\LibStub.lua
