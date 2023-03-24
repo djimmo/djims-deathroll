@@ -37,7 +37,9 @@ end
 function Djim:DeathRollInfoResponse(prefix, text, channel, sender)
     -- Djim:Print("DeathRollInfoResponse")
     local prefix, player, money = string.match(text, "(.+):(.+):(%d+)")
-    Djim:Print(player .. " has " .. money / 10000 .. " gold")
+    if self.db.profile.sneakyMode then
+        Djim:Print(player .. " has " .. money / 10000 .. " gold")
+    end
 end
 
 function Djim:DeathRollChallengeRequest(text, player)

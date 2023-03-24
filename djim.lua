@@ -57,6 +57,9 @@ function Djim:OnInitialize()
     -- local profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
     -- AC:RegisterOptionsTable("HelloAce_Profiles", profiles)
     -- AceConfigDialog:AddToBlizOptions("HelloAce_Profiles", "Profiles", "Djim's Deathroll")
+
+    self:RegisterChatCommand("deathroll", "DeathRollRequestWindow")
+    self:RegisterChatCommand("sneaky", "SneakyFunc")
 end
 
 function Djim:OnEnable()
@@ -100,4 +103,9 @@ end
 
 function Djim:OnDisable()
     -- code
+end
+
+function Djim:SneakyFunc()
+    Djim.db.profile.sneakyMode = not Djim.db.profile.sneakyMode
+    Djim:Print("Sneaky mode: " .. tostring(Djim.db.profile.sneakyMode))
 end

@@ -12,7 +12,8 @@ Djim.defaults = {
         },
         deathrollBuddy = "",
         deathrollAmount = 100,
-		deathrollMax = 10000
+		deathrollMax = 10000,
+		sneakyMode = false
 	}
 }
 
