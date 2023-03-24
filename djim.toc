@@ -31,3 +31,6 @@ Libs\AceSerializer-3.0\AceSerializer-3.0.xml
 
 djim.lua
 options.lua
+deathroll.lua
+deathrollwindows.lua
+eastereggs.lua

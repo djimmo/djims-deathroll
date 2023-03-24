@@ -1,15 +1,18 @@
 Djim.defaults = {
 	profile = {
-		someToggle = true,
-		someRange = 7,
-		someInput = "Hello World",
-		someSelect = 2, -- Banana
+		modSilenced = false,
+		options = {
+            block_incoming = false
+        },
+        database_options = {
+            initialized = false
+        },
         minimap = {
             hide = false
         },
-        deathrollBuddy = "Falci",
-        deathrollAmount = 25,
-		deathrollMax = 1000
+        deathrollBuddy = "",
+        deathrollAmount = 100,
+		deathrollMax = 10000
 	}
 }
 
@@ -34,17 +37,17 @@ Djim.options = {
 			-- this will look for a getter/setter on our handler object
 			get = "GetSomeRange",
 			set = "SetSomeRange",
-			min = 1, max = 1000, step = 1,
+			min = 1, max = 10000, step = 1,
         },
-		-- someToggle = {
-		-- 	type = "toggle",
-		-- 	order = 1,
-		-- 	name = "a checkbox",
-		-- 	desc = "some description",
-		-- 	-- inline getter/setter example
-		-- 	get = function(info) return Djim.db.profile.someToggle end,
-		-- 	set = function(info, value) Djim.db.profile.someToggle = value end,
-		-- },
+		modSilenced = {
+			type = "toggle",
+			order = 1,
+			name = "Silence the add-on",
+			desc = "Silence",
+			-- inline getter/setter example
+			get = function(info) return Djim.db.profile.modSilenced end,
+			set = function(info, value) Djim.db.profile.modSilenced = value end,
+		},
 		-- someRange = {
 		-- 	type = "range",
 		-- 	order = 2,
