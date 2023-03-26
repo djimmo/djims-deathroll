@@ -78,7 +78,7 @@ function Djim:DeathRoll(prefixa, text, channel, sender)
                     -- AddTradeMoney()
                 end
 
-                SendChatMessage("I LOST AND PAID " .. sender, "PARTY")
+                -- SendChatMessage("I LOST AND PAID " .. sender, "PARTY")
                 acceptRolls = false
             end)
         end
