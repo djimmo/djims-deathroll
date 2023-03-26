@@ -24,7 +24,7 @@ function Djim:RandomFunc()
 
         if (event == "CHAT_MSG_RAID" or event == "CHAT_MSG_RAID_LEADER" or event == "CHAT_MSG_WHISPER" or event ==
             "CHAT_MSG_BN_WHISPER") then
-            print(...)
+            -- print(...)
             local text, playerName, _, __, charName = ...
             -- print(text)
 
